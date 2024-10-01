@@ -24,7 +24,8 @@ public class TC01_LoginTest {
     private final String PASSWORD = DataUtils.getJsonData("validLogin", "password");
 
     @BeforeMethod(alwaysRun = true)
-    public void setup() throws IOException {
+    public void setup() throws IOException
+    {
         //condition ? true : false
         String browser = System.getProperty("browser") != null ? System.getProperty("browser") : getPropertyValue("environment", "Browser");
         LogsUtils.info(System.getProperty("browser"));
@@ -32,8 +33,8 @@ public class TC01_LoginTest {
         LogsUtils.info(browser + " driver is opened");
         getDriver().get(getPropertyValue("environment", "BASE_URL"));
         LogsUtils.info("Page is redirected to the URL");
-        getDriver().manage().timeouts()
-                .implicitlyWait(Duration.ofSeconds(10));
+
+        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Test

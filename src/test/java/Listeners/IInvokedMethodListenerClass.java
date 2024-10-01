@@ -20,8 +20,9 @@ public class IInvokedMethodListenerClass implements IInvokedMethodListener {
 
     }
 
-    public void afterInvocation(IInvokedMethod method, ITestResult testResult, ITestContext context) {
-        //Utility.takeFullScreenshot(getDriver(), new P02_LandingPage(getDriver()).getNumberOfSelectedProductsOnCart());
+    public void afterInvocation(IInvokedMethod method, ITestResult testResult, ITestContext context)
+    {
+        // Utility.takeHighlightedScreenshot(getDriver(), new P02_LandingPage(getDriver()).getNumberOfSelectedProductsOnCart());
         switch (testResult.getStatus()) {
             case ITestResult.FAILURE:
                 LogsUtils.info("Test Case " + testResult.getName() + " failed");
