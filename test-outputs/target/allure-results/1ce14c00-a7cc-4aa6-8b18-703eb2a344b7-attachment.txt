@@ -1,0 +1,4 @@
+[INFO] 09-10-2024 12:35:02 [main] [Tests.TC01_AddingCustomer.setup(TC01_AddingCustomer.java:40)] - null
+[INFO] 09-10-2024 12:35:04 [main] [Tests.TC01_AddingCustomer.setup(TC01_AddingCustomer.java:42)] - chrome driver is opened
+[INFO] 09-10-2024 12:35:07 [main] [Tests.TC01_AddingCustomer.setup(TC01_AddingCustomer.java:44)] - Page is redirected to the URL
+[INFO] 09-10-2024 12:35:07 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case setup passed

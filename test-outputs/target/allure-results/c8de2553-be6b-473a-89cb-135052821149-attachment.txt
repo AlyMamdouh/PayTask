@@ -1,0 +1,4 @@
+[INFO] 09-10-2024 15:49:08 [main] [Tests.TC03_Searching.setup(TC03_Searching.java:36)] - null
+[INFO] 09-10-2024 15:49:09 [main] [Tests.TC03_Searching.setup(TC03_Searching.java:38)] - chrome driver is opened
+[INFO] 09-10-2024 15:49:10 [main] [Tests.TC03_Searching.setup(TC03_Searching.java:40)] - Page is redirected to the URL
+[INFO] 09-10-2024 15:49:10 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case setup passed

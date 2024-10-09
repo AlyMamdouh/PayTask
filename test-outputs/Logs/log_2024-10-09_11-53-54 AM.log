@@ -1,0 +1,7 @@
+[INFO] 09-10-2024 11:53:54 [main] [Tests.TC01_AddingCustomer.setup(TC01_LoginTest.java:35)] - null
+[INFO] 09-10-2024 11:53:56 [main] [Tests.TC01_AddingCustomer.setup(TC01_LoginTest.java:37)] - chrome driver is opened
+[INFO] 09-10-2024 11:53:57 [main] [Tests.TC01_AddingCustomer.setup(TC01_LoginTest.java:39)] - Page is redirected to the URL
+[INFO] 09-10-2024 11:53:57 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case setup passed
+[INFO] 09-10-2024 11:53:57 [main] [Listeners.ITestResultListenerClass.onTestStart(ITestResultListenerClass.java:9)] - Test Case validLoginTC started
+[INFO] 09-10-2024 11:54:00 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:28)] - Test Case validLoginTC failed
+[INFO] 09-10-2024 11:54:00 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case quit passed
