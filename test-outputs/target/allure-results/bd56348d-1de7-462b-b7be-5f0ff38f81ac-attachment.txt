@@ -1,4 +1,0 @@
-[INFO] 30-09-2024 10:07:14 [main] [Tests.TC01_LoginTest.setup(TC01_LoginTest.java:30)] - null
-[INFO] 30-09-2024 10:07:16 [main] [Tests.TC01_LoginTest.setup(TC01_LoginTest.java:32)] - edge driver is opened
-[INFO] 30-09-2024 10:07:17 [main] [Tests.TC01_LoginTest.setup(TC01_LoginTest.java:34)] - Page is redirected to the URL
-[INFO] 30-09-2024 10:07:17 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:31)] - Test Case setup passed
