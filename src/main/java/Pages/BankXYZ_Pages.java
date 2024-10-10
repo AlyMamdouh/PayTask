@@ -4,7 +4,12 @@ import Utilities.Utility;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,9 +49,8 @@ public class BankXYZ_Pages
     private final By CustomersBtn = By.xpath("//button[@ng-click='showCust()']");
     private final By SearchFld = By.cssSelector("input[placeholder='Search Customer']");
     private final By SecondRow_FirstColumn = By.cssSelector("tbody tr:nth-child(1) td:nth-child(1)");
-//    private final By CustomersBtn = By.
-//    private final By CustomersBtn = By.
-//    private final By CustomersBtn = By.
+    private final By TablePostCode = By.xpath("//a[normalize-space()='Post Code']");
+    private final By postCodeElements = By.xpath("//table//tbody//tr/td[3]");
 
 
 
@@ -105,8 +109,12 @@ public class BankXYZ_Pages
         return new BankXYZ_Pages(driver);
     }
 
-
-
+    public BankXYZ_Pages clickonPostCode()
+    {
+        Utility.clickingOnElement(driver, TablePostCode);
+        Utility.generalWait(driver);
+        return new BankXYZ_Pages(driver);
+    }
 
 
 
@@ -270,37 +278,57 @@ public class BankXYZ_Pages
 
 
 
+    public BankXYZ_Pages checkSortingOrder()
+    {
+        List<WebElement> elements = Utility.getElementsAsList(driver, postCodeElements);
 
+        List<String> postCodes = new ArrayList<>();
 
+        // جمع النصوص من عناصر عمود "Post Code"
+        for (WebElement element : elements)
+        {
+            postCodes.add(element.getText().trim());
+        }
 
+        // عمل مقارنة مخصصة لترتيب النصوص والأرقام معًا
+        Comparator<String> alphanumericComparator = (s1, s2) -> {
+            // فصل الأرقام من النصوص
+            String num1 = s1.replaceAll("[^\\d]", "");
+            String num2 = s2.replaceAll("[^\\d]", "");
+            int result = num1.compareTo(num2);
 
+            // إذا كانت الأرقام متساوية، نقارن النصوص
+            if (result == 0)
+            {
+                return s1.compareTo(s2);
+            }
+            return result;
+        };
 
+        // عمل نسخة مرتبة تصاعديًا
+        List<String> sortedAsc = new ArrayList<>(postCodes);
+        Collections.sort(sortedAsc, alphanumericComparator);
 
+        // عمل نسخة مرتبة تنازليًا
+        List<String> sortedDesc = new ArrayList<>(postCodes);
+        Collections.sort(sortedDesc, alphanumericComparator.reversed());
 
+        // مقارنة القائمة الأصلية مع النسخ المرتبة
+        if (postCodes.equals(sortedAsc))
+        {
+            System.out.println("Items are ordered : Ascending");
+        }
+        else if (postCodes.equals(sortedDesc))
+        {
+            System.out.println("Items are ordered : Descending");
+        }
+        else
+        {
+            System.out.println("Items are NOT ordered neither Ascending nor Descending");
+        }
 
-
-//
-//
-//    public BankXYZ_Pages ComparingAccNo()
-//    {
-//
-//        String webElementAccountNumber = AccActualNo.toString();
-//
-//        if (alertAccountNumber.equals(webElementAccountNumber))
-//        {
-//            System.out.println("Same Account Number");
-//        }
-//        else
-//        {
-//            System.out.println("Account Numbers Aren't the same");
-//        }
-//
-//        return new BankXYZ_Pages(driver);
-//    }
-//
-
-
-
+        return new BankXYZ_Pages(driver);
+    }
 
 }
 

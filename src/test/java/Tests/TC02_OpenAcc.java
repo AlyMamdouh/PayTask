@@ -45,7 +45,7 @@ public class TC02_OpenAcc
     }
 
     @Test (priority = 1)
-    public void validLoginTC()
+    public void AddingCus()
     {
         new BankXYZ_Pages(getDriver())
                 .clickBankManagerLoginBtn()

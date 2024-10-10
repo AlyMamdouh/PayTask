@@ -26,7 +26,7 @@ public class IInvokedMethodListenerClass implements IInvokedMethodListener {
         switch (testResult.getStatus()) {
             case ITestResult.FAILURE:
                 LogsUtils.info("Test Case " + testResult.getName() + " failed");
-                Utility.takeScreenShot(getDriver(), testResult.getName()); //validLoginTC-2024-03-03-8-17pm
+                Utility.takeScreenShot(getDriver(), testResult.getName()); //AddingCust-2024-03-03-8-17pm
                 break;
             case ITestResult.SUCCESS:
                 LogsUtils.info("Test Case " + testResult.getName() + " passed");

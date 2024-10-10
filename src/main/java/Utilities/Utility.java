@@ -245,4 +245,12 @@ public class Utility
         // فانكشن بتسيرش و تجبلك احدث فايل موجود في فولدر معين
         // بتديها ال path بتاع الفولدر اللي عايز تدور فيه
     }
+
+
+    public static List<WebElement> getElementsAsList(WebDriver driver, By locator)
+    {
+        return driver.findElements(locator);
+    }
+
+
 }

@@ -3,7 +3,6 @@ package Tests;
 import Listeners.IInvokedMethodListenerClass;
 import Listeners.ITestResultListenerClass;
 import Pages.BankXYZ_Pages;
-import Utilities.DataUtils;
 import Utilities.LogsUtils;
 import org.testng.annotations.*;
 
@@ -16,24 +15,14 @@ import static Utilities.DataUtils.getPropertyValue;
 
 
 
-
-
-
-
-
+import org.testng.annotations.Listeners;
 
 @Listeners({IInvokedMethodListenerClass.class, ITestResultListenerClass.class})
 
-
-public class TC01_AddingCustomer
+public class TC04_Sorting
 {
 
-    public final String FIRSTNAME = DataUtils.getJsonData("addingCustomer", "firstname");
-    public final String LASTNAME = DataUtils.getJsonData("addingCustomer", "lastname");
-    private final String POSTCODE = DataUtils.getJsonData("addingCustomer", "postcode");
-
-
-    @BeforeTest
+    @BeforeClass
     public void setup() throws IOException
     {
         String browser = System.getProperty("browser") != null ? System.getProperty("browser") : getPropertyValue("environment", "Browser");
@@ -47,21 +36,24 @@ public class TC01_AddingCustomer
     }
 
     @Test
-    public void AddingCust()
+    public void SortingPostcode()
     {
         new BankXYZ_Pages(getDriver())
                 .clickBankManagerLoginBtn()
-                .clickAddingCustBtn()
-                .EnterFirstN(FIRSTNAME)
-                .EnterLastN(LASTNAME)
-                .EnterPostcode(POSTCODE)
-                .clickAddCustBtn()
-                .checkCustAdding();
+                .clickonCustomers()
+                .clickonPostCode()
+                .checkSortingOrder()
+                .clickonPostCode()
+                .checkSortingOrder();
+
+
     }
 
-
-    @AfterTest
-    public void quit() {
+    @AfterClass
+    public void quit()
+    {
         quitDriver();
     }
+
+
 }

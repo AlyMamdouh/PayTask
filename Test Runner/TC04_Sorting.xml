@@ -1,14 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >
-<suite name="Opening Account">
+<suite name="Sorting Test">
     <listeners>
         <listener class-name="Listeners.ITestResultListenerClass"/>
         <listener class-name="Listeners.IInvokedMethodListenerClass"/>
     </listeners>
 
 
-    <test name="OpenAcc">
+    <test name="Sorting">
         <classes>
-            <class name="Tests.TC02_OpenAcc"/>
+            <class name="Tests.TC04_Sorting"/>
         </classes>
     </test>
 
