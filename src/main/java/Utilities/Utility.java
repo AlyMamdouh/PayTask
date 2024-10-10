@@ -3,7 +3,9 @@ package Utilities;
 import com.assertthat.selenium_shutterbug.core.Capture;
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
 import io.qameta.allure.Allure;
+import io.restassured.response.Response;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -15,6 +17,7 @@ import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
+
 
 public class Utility
 {
@@ -251,6 +254,17 @@ public class Utility
     {
         return driver.findElements(locator);
     }
+
+
+
+    public static class LoggingUtils {
+        public static void logRequestAndResponse(Response response, Logger logger) {
+            logger.info("Request method: {}", response.getStatusLine());
+            logger.info("Response code: {}", response.getStatusCode());
+            logger.info("Response body: {}", response.asString());
+        }
+    }
+
 
 
 }
