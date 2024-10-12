@@ -12,7 +12,7 @@ import java.time.Duration;
 
 import static DriverFactory.DriverFactory.*;
 import static Utilities.DataUtils.getPropertyValue;
-
+import io.qameta.allure.*;
 
 
 
@@ -24,6 +24,8 @@ import static Utilities.DataUtils.getPropertyValue;
 
 @Listeners({IInvokedMethodListenerClass.class, ITestResultListenerClass.class})
 
+@Epic("Giza Systems Assessment")
+@Severity(SeverityLevel.CRITICAL)
 
 public class TC01_AddingCustomer
 {
