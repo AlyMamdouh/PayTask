@@ -1,7 +1,0 @@
-Tests\PetStoreApiTest.class
-Tests\TC02_OpenAcc.class
-Listeners\ITestResultListenerClass.class
-Tests\TC04_Sorting.class
-Listeners\IInvokedMethodListenerClass.class
-Tests\TC01_AddingCustomer.class
-Tests\TC03_Searching.class
