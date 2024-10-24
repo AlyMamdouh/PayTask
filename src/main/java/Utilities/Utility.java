@@ -26,8 +26,6 @@ public class Utility
     {
         return driver.findElement(locator);
 
-        // فانكشن بتخليك تستخدم الWebElement كـ Object و تتعامل معاه .. افهم من ال usages
-        // بتديها الدرايفر و الWebElement
     }
 
 
@@ -37,9 +35,6 @@ public class Utility
     {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", findWebElement(driver, locator));
 
-        // فانكشن بتعمل سكرول لحد ما تلاقي WebElement معين
-        // بتديها الدرايفر getDriver() و الWebElement
-        // مستخدمة فانكشن findWebElement اللي انت عاملها فوق خلي بالك
     }
 
 
@@ -49,9 +44,6 @@ public class Utility
     {
         new Select(findWebElement(driver, locator)).selectByVisibleText(option);
 
-        // فانكشن بتفتح القائمة و تختار منها اختيار
-        // بتديها الدرايفر .. و الWebElement بتاع القائمة .. و النص اللي عايز تختاره
-        // مستخدمة فانكشن findWebElement اللي انت عاملها فوق خلي بالك
     }
 
 
@@ -62,8 +54,6 @@ public class Utility
     {
         return new SimpleDateFormat("yyyy-MM-dd-hh-mm-ssa").format(new Date());
 
-        // yyyy-MM-dd-hh-mm-ssa فانكشن بتجبلك التاريخ و الوقت الحالي على هيئة كلام
-        //مبتاخدش حاجه و في الاغلب بتستخدمها مع السكرينشوت
     }
 
 
@@ -90,14 +80,6 @@ public class Utility
             LogsUtils.error(e.getMessage());
         }
 
-        // المتغير ده SCREENSHOTS_PATH بيخزن المسار اللي هيتم حفظ السكرين شوت فيه
-        // برايفت: يعني المتغير ده مش ممكن الوصول إليه من خارج الكلاس
-        // ستاتيك: المتغير مرتبط بالكلاس نفسه، مش بالobjects اللي هتنشأ منه
-        // فاينال: هياخد قيمة مرة واحدة بس وما تقدرش تغيرها بعد كده
-
-        // الفانكشن بتاخد سكرينشوت وتضيفها لريبورت Allure .. و بتديها driver و اسم السكرين شوت و غالبا بيكونو getDriver() و testResult.getName()
-        // تراي: حاول تنفذ الكود ده .. كاتش: لو حصل ايرور سجله بدل ما التيست يقف
-        // اللي جوه الكاتش ده : بتسجل الايرور فال logs، علشان تقدر تعرف الايرور وتتعامل معاه بعدين
     }
 
     public static void takeHighlightedScreenshot(WebDriver driver, By locator)
@@ -113,8 +95,6 @@ public class Utility
             LogsUtils.error(e.getMessage());
         }
 
-        // الفانكشن بتاخد سكرينشوت و بتديها driver و الWebElement اللي انت عايز تـ highlight عليه
-        // مستخدمة فانكشن findWebElement اللي انت عاملها فوق خلي بالك
     }
 
 
@@ -125,8 +105,6 @@ public class Utility
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(locator));
         driver.findElement(locator).click();
 
-        // الفانكشن دي بتستنى لحد ما الWebElement ده يكون clickable لمده اقصاها 5ث بعد كده تضغط عليه
-        // الفانكشن دي بتاخد driver و WebElement اللي بتكون معرفها ف البيدج اصلا
     }
 
 
@@ -137,9 +115,7 @@ public class Utility
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(locator));
         driver.findElement(locator).sendKeys(data);
 
-        // الفانكشن دي بتستنى لحد ما الWebElement ده يكون Visible لمده اقصاها 5ث بعد كده تدخل الداتا
-        // الفانكشن دي بتاخد driver و WebElement اللي بتكون معرفها ف البيدج اصلا و الداتا اللي عايز تدخلها مـنغيــر ""
-    }
+         }
 
 
 
@@ -148,9 +124,6 @@ public class Utility
     {
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElement(locator).getText();
-
-        // الفانكشن دي بتستنى لحد ما الWebElement ده يكون Visible لمده اقصاها 5ث بعد كده تجيب الكلام اللي جواه
-        // الفانكشن دي بتاخد driver و WebElement اللي بتكون معرفها ف البيدج اصلا
     }
 
 
@@ -159,9 +132,6 @@ public class Utility
     public static WebDriverWait generalWait(WebDriver driver)
     {
         return new WebDriverWait(driver, Duration.ofSeconds(5));
-
-        //فانكشن بتخلي الدرايفر يستنى 5 ثواني
-        // بتاخد الدرايفر او getDriver()
     }
 
 
@@ -170,10 +140,7 @@ public class Utility
     public static int generateRandomNumber(int MaxNumber)
     {
         return new Random().nextInt(MaxNumber) + 1;
-
-        // فانكشن بتـ generate رقم عشوائي من 1 لحد الرقم اللي انت بتديهولها
-        // لو عايزها تبدأ من صفر شيل ال+1
-    }
+   }
 
 
 
@@ -187,10 +154,6 @@ public class Utility
             generatedNumbers.add(randomNumber);
         }
         return generatedNumbers;
-
-        // فانكشن بتديلك مجموعة من unique random numbers بعدد ارقام معين و من 1 لحد ال MaxNumber
-        // وانت بتديها عدد الارقام اللي عايزها و الMaxNumber
-        // لو عايز الارقام تجيلك مترتبه تصاعدي استخدم TreeSet بدل HashSet اللي ف اخر اول سطر
     }
 
 
@@ -207,29 +170,6 @@ public class Utility
             return false;
         }
         return true;
-
-        // الفانكشن بتتشيك ان ال URL هوا هوا اللي انت مدخلهولها ولا لا لو تمام بترجع true لو مش هوا بترجع false
-        // بتاخد الدرايفر getDriver() او driver .. و الURL المتوقع بين ""
-    }
-
-
-
-
-    public static Set<Cookie> getAllCookies(WebDriver driver)
-    {
-        return driver.manage().getCookies();
-
-        // فانكشن بتجبلك الكوكيز اللي مع الدرايفر وانت بتحطها ف متغير بعد كده زي مثلا .. cookies = getAllCookies(getDriver())
-        // و بتكون معرف cookies الاول طبعا قبل اي حاجه زي كده .. private Set<Cookie> cookies
-        // بتديها الدرايفر و غالبا بيكون getDriver()
-    }
-
-    public static void restoreSession(WebDriver driver, Set<Cookie> cookies)
-    {
-        for (Cookie cookie : cookies) driver.manage().addCookie(cookie);
-
-        //فانكشن بتخلي الدرايفر يفتح البراوزر عن طريق الكوكيز اللي المفروض تكون خزنتها من الفانكشن اللي فاتت
-        // بتديها الدرايفر و غالبا بيكون getDriver() و كمان طبعا المتغير اللي فيه الكوكيز
     }
 
 
@@ -244,24 +184,52 @@ public class Utility
         Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
 
         return files[0];
-
-        // فانكشن بتسيرش و تجبلك احدث فايل موجود في فولدر معين
-        // بتديها ال path بتاع الفولدر اللي عايز تدور فيه
-    }
-
-
-    public static List<WebElement> getElementsAsList(WebDriver driver, By locator)
-    {
-        return driver.findElements(locator);
-    }
+   }
 
 
 
-    public static class LoggingUtils {
-        public static void logRequestAndResponse(Response response, Logger logger) {
-            logger.info("Request method: {}", response.getStatusLine());
-            logger.info("Response code: {}", response.getStatusCode());
-            logger.info("Response body: {}", response.asString());
+    public static class DataGenerator {
+
+        private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        private static final String NUMBERS = "0123456789";
+        private static final String EMAIL_DOMAIN = "@example.com";
+
+        // دالة لتوليد اسم عشوائي
+        public static String getRandomString(int length) {
+            Random random = new Random();
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < length; i++) {
+                builder.append(CHARACTERS.charAt(random.nextInt(CHARACTERS.length())));
+            }
+            return builder.toString();
+        }
+
+        // دالة لتوليد بريد إلكتروني عشوائي
+        public static String getRandomEmail() {
+            String firstName = getRandomString(6).toLowerCase();
+            String lastName = getRandomString(6).toLowerCase();
+            return firstName + "." + lastName + NUMBERS.charAt(new Random().nextInt(NUMBERS.length())) + EMAIL_DOMAIN;
+        }
+
+        // دالة لتوليد كلمة مرور عشوائية
+        public static String getRandomPassword(int length) {
+            String charsAndNums = CHARACTERS + NUMBERS;
+            Random random = new Random();
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < length; i++) {
+                builder.append(charsAndNums.charAt(random.nextInt(charsAndNums.length())));
+            }
+            return builder.toString();
+        }
+
+        // دالة لإدخال بيانات عشوائية في الـ WebElements
+        public static void fillInFields(WebElement firstNameField, WebElement lastNameField, WebElement emailField, WebElement passwordField) {
+            firstNameField.sendKeys(getRandomString(6));
+            lastNameField.sendKeys(getRandomString(6));
+            emailField.sendKeys(getRandomEmail());
+            passwordField.sendKeys(getRandomPassword(10));
         }
     }
 

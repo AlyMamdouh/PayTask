@@ -1,0 +1,7 @@
+[INFO] 24-10-2024 17:04:13 [main] [Tests.TEST_FULL_SCENARIO.setup(TC01_CreateAccount.java:44)] - null
+[INFO] 24-10-2024 17:04:14 [main] [Tests.TEST_FULL_SCENARIO.setup(TC01_CreateAccount.java:46)] - chrome driver is opened
+[INFO] 24-10-2024 17:04:18 [main] [Tests.TEST_FULL_SCENARIO.setup(TC01_CreateAccount.java:48)] - Page is redirected to the URL
+[INFO] 24-10-2024 17:04:18 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case setup passed
+[INFO] 24-10-2024 17:04:18 [main] [Listeners.ITestResultListenerClass.onTestStart(ITestResultListenerClass.java:9)] - Test Case AddingCust started
+[INFO] 24-10-2024 17:04:25 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:28)] - Test Case AddingCust failed
+[INFO] 24-10-2024 17:04:26 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case quit passed

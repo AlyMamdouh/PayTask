@@ -3,17 +3,15 @@ package Pages;
 import Utilities.Utility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 
-public class BankXYZ_Pages
+public class Magento_Page
 {
     private static WebDriver driver;
 
-    public BankXYZ_Pages(WebDriver driver) {
-        BankXYZ_Pages.driver = driver;
+    public Magento_Page(WebDriver driver) {
+        Magento_Page.driver = driver;
     }
 
 
@@ -33,25 +31,25 @@ public class BankXYZ_Pages
 
 
 
-    public BankXYZ_Pages clickCreateAccUpper()
+    public Magento_Page clickCreateAccUpper()
     {
         Utility.clickingOnElement(driver, CreatAccUpperBtn);
-        return new BankXYZ_Pages(driver);
+        return new Magento_Page(driver);
     }
 
-    public BankXYZ_Pages clickCreateAccLower()
+    public Magento_Page clickCreateAccLower()
     {
         Utility.clickingOnElement(driver, CreatAccLowerBtn);
-        return new BankXYZ_Pages(driver);
+        return new Magento_Page(driver);
     }
 
-    public BankXYZ_Pages MSGassertionAndGoHome()
+    public Magento_Page MSGassertionAndGoHome()
     {
         String expectedMessage = "Thank you for registering with Main Website Store.";
         String actualMessage = driver.findElement(By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']")).getText();
         Assert.assertEquals(actualMessage, expectedMessage);
         driver.get("https://magento.softwaretestingboard.com/");
-        return new BankXYZ_Pages(driver);
+        return new Magento_Page(driver);
     }
 
 
@@ -59,31 +57,31 @@ public class BankXYZ_Pages
 
 
 
-    public BankXYZ_Pages EnterFirstName(String firstN)
+    public Magento_Page EnterFirstName(String firstN)
     {
         Utility.sendData(driver, FirstName, firstN);
         return this;
     }
 
-    public BankXYZ_Pages EnterLastName(String lastN)
+    public Magento_Page EnterLastName(String lastN)
     {
         Utility.sendData(driver, LastName, lastN);
         return this;
     }
 
-    public BankXYZ_Pages EnterEmail(String PCode)
+    public Magento_Page EnterEmail(String PCode)
     {
         Utility.sendData(driver, Email, PCode);
         return this;
     }
 
-    public BankXYZ_Pages EnterPassword(String PCode)
+    public Magento_Page EnterPassword(String PCode)
     {
         Utility.sendData(driver, Password, PCode);
         return this;
     }
 
-    public BankXYZ_Pages EnterConfPassword(String PCode)
+    public Magento_Page EnterConfPassword(String PCode)
     {
         Utility.sendData(driver, ConfPassword, PCode);
         return this;

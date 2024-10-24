@@ -2,7 +2,7 @@ package Tests;
 
 import Listeners.IInvokedMethodListenerClass;
 import Listeners.ITestResultListenerClass;
-import Pages.BankXYZ_Pages;
+import Pages.Magento_Page;
 import Utilities.DataUtils;
 import Utilities.LogsUtils;
 import org.testng.annotations.*;
@@ -24,10 +24,10 @@ import io.qameta.allure.*;
 
 @Listeners({IInvokedMethodListenerClass.class, ITestResultListenerClass.class})
 
-@Epic("Giza Systems Assessment")
+@Epic("Pay mob Assessment")
 @Severity(SeverityLevel.CRITICAL)
 
-public class TC01_CreateAccount
+public class TEST_FULL_SCENARIO
 {
 
     public final String FIRSTNAME = DataUtils.getJsonData("addingCustomer", "firstname");
@@ -53,7 +53,7 @@ public class TC01_CreateAccount
     @Test
     public void AddingCust()
     {
-        new BankXYZ_Pages(getDriver())
+        new Magento_Page(getDriver())
                 .clickCreateAccUpper()
                 .EnterFirstName(FIRSTNAME)
                 .EnterLastName(LASTNAME)
@@ -61,9 +61,7 @@ public class TC01_CreateAccount
                 .EnterPassword(PASSWORD)
                 .EnterConfPassword(PASSWORD)
                 .clickCreateAccLower()
-                .MSGassertionAndGoHome()
-                .HoverAndClick1()
-                .HoverAndClick2();
+                .MSGassertionAndGoHome();
 
     }
 

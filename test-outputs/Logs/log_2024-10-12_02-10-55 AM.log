@@ -1,6 +1,6 @@
-[INFO] 12-10-2024 02:10:56 [main] [Tests.TC01_AddingCustomer.setup(TC01_AddingCustomer.java:42)] - null
-[INFO] 12-10-2024 02:11:03 [main] [Tests.TC01_AddingCustomer.setup(TC01_AddingCustomer.java:44)] - chrome driver is opened
-[INFO] 12-10-2024 02:11:04 [main] [Tests.TC01_AddingCustomer.setup(TC01_AddingCustomer.java:46)] - Page is redirected to the URL
+[INFO] 12-10-2024 02:10:56 [main] [Tests.TEST_FULL_SCENARIO.setup(TC01_AddingCustomer.java:42)] - null
+[INFO] 12-10-2024 02:11:03 [main] [Tests.TEST_FULL_SCENARIO.setup(TC01_AddingCustomer.java:44)] - chrome driver is opened
+[INFO] 12-10-2024 02:11:04 [main] [Tests.TEST_FULL_SCENARIO.setup(TC01_AddingCustomer.java:46)] - Page is redirected to the URL
 [INFO] 12-10-2024 02:11:04 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case setup passed
 [INFO] 12-10-2024 02:11:04 [main] [Listeners.ITestResultListenerClass.onTestStart(ITestResultListenerClass.java:9)] - Test Case AddingCust started
 [INFO] 12-10-2024 02:11:08 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case AddingCust passed

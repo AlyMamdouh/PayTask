@@ -1,0 +1,4 @@
+[INFO] 24-10-2024 17:08:29 [main] [Tests.TC01_CreateAccount.setup(TC01_CreateAccount.java:44)] - null
+[INFO] 24-10-2024 17:08:31 [main] [Tests.TC01_CreateAccount.setup(TC01_CreateAccount.java:46)] - chrome driver is opened
+[INFO] 24-10-2024 17:08:34 [main] [Tests.TC01_CreateAccount.setup(TC01_CreateAccount.java:48)] - Page is redirected to the URL
+[INFO] 24-10-2024 17:08:34 [main] [Listeners.IInvokedMethodListenerClass.afterInvocation(IInvokedMethodListenerClass.java:32)] - Test Case setup passed
