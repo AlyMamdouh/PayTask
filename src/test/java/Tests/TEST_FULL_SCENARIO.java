@@ -12,24 +12,32 @@ import java.time.Duration;
 
 import static DriverFactory.DriverFactory.*;
 import static Utilities.DataUtils.getPropertyValue;
+import io.qameta.allure.*;
 
 
 
 
-import org.testng.annotations.Listeners;
+
+
+
+
 
 @Listeners({IInvokedMethodListenerClass.class, ITestResultListenerClass.class})
 
-public class TC03_Searching
+@Epic("Giza Systems Assessment")
+@Severity(SeverityLevel.CRITICAL)
+
+public class TC01_CreateAccount
 {
 
-    private final String FIRSTNAME = DataUtils.getJsonData("addingCustomer", "firstname");
-    private final String LASTNAME = DataUtils.getJsonData("addingCustomer", "lastname");
-    private final String POSTCODE = DataUtils.getJsonData("addingCustomer", "postcode");
+    public final String FIRSTNAME = DataUtils.getJsonData("addingCustomer", "firstname");
+    public final String LASTNAME = DataUtils.getJsonData("addingCustomer", "lastname");
+    private final String EMAIL = DataUtils.getJsonData("addingCustomer", "email");
+    private final String PASSWORD = DataUtils.getJsonData("addingCustomer", "password");
+    private final String CONFPASSWORD = DataUtils.getJsonData("addingCustomer", "confirm_password");
 
 
-
-    @BeforeClass
+    @BeforeTest
     public void setup() throws IOException
     {
         String browser = System.getProperty("browser") != null ? System.getProperty("browser") : getPropertyValue("environment", "Browser");
@@ -43,29 +51,25 @@ public class TC03_Searching
     }
 
     @Test
-    public void validLoginTC()
+    public void AddingCust()
     {
         new BankXYZ_Pages(getDriver())
-                .clickBankManagerLoginBtn()
-                .clickAddingCustBtn()
-                .EnterFirstN(FIRSTNAME)
-                .EnterLastN(LASTNAME)
-                .EnterPostcode(POSTCODE)
-                .clickAddCustBtn()
-                .checkCustAdding()
-                .clickHomeBtn()
-                .clickBankManagerLoginBtn()
-                .clickonCustomers()
-                .SearchByName(FIRSTNAME)
-                .CheckSearching(FIRSTNAME);
+                .clickCreateAccUpper()
+                .EnterFirstName(FIRSTNAME)
+                .EnterLastName(LASTNAME)
+                .EnterEmail(EMAIL)
+                .EnterPassword(PASSWORD)
+                .EnterConfPassword(PASSWORD)
+                .clickCreateAccLower()
+                .MSGassertionAndGoHome()
+                .HoverAndClick1()
+                .HoverAndClick2();
 
     }
 
-    @AfterClass
-    public void quit()
-    {
+
+    @AfterTest
+    public void quit() {
         quitDriver();
     }
-
-
 }
