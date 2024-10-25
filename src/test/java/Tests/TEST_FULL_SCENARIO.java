@@ -30,13 +30,6 @@ import io.qameta.allure.*;
 public class TEST_FULL_SCENARIO
 {
 
-    public final String FIRSTNAME = DataUtils.getJsonData("addingCustomer", "firstname");
-    public final String LASTNAME = DataUtils.getJsonData("addingCustomer", "lastname");
-    private final String EMAIL = DataUtils.getJsonData("addingCustomer", "email");
-    private final String PASSWORD = DataUtils.getJsonData("addingCustomer", "password");
-    private final String CONFPASSWORD = DataUtils.getJsonData("addingCustomer", "confirm_password");
-
-
     @BeforeTest
     public void setup() throws IOException
     {
@@ -55,13 +48,11 @@ public class TEST_FULL_SCENARIO
     {
         new Magento_Page(getDriver())
                 .clickCreateAccUpper()
-                .EnterFirstName(FIRSTNAME)
-                .EnterLastName(LASTNAME)
-                .EnterEmail(EMAIL)
-                .EnterPassword(PASSWORD)
-                .EnterConfPassword(PASSWORD)
+                .filling()
                 .clickCreateAccLower()
-                .MSGassertionAndGoHome();
+                .MSGassertionAndGoHome()
+                .AddingItem1()
+                .AddingItem2();
 
     }
 

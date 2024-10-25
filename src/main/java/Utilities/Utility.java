@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -188,49 +189,22 @@ public class Utility
 
 
 
-    public static class DataGenerator {
 
-        private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        private static final String NUMBERS = "0123456789";
-        private static final String EMAIL_DOMAIN = "@example.com";
 
-        // دالة لتوليد اسم عشوائي
-        public static String getRandomString(int length) {
-            Random random = new Random();
-            StringBuilder builder = new StringBuilder();
+    public static void scrollAndHoverAndClick(WebDriver driver, By elementYYLocator, By elementXXLocator) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-            for (int i = 0; i < length; i++) {
-                builder.append(CHARACTERS.charAt(random.nextInt(CHARACTERS.length())));
-            }
-            return builder.toString();
-        }
+        // Scroll down to find element YY
+        WebElement elementYY = wait.until(ExpectedConditions.visibilityOfElementLocated(elementYYLocator));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elementYY);
 
-        // دالة لتوليد بريد إلكتروني عشوائي
-        public static String getRandomEmail() {
-            String firstName = getRandomString(6).toLowerCase();
-            String lastName = getRandomString(6).toLowerCase();
-            return firstName + "." + lastName + NUMBERS.charAt(new Random().nextInt(NUMBERS.length())) + EMAIL_DOMAIN;
-        }
+        // Hover over element YY
+        Actions actions = new Actions(driver);
+        actions.moveToElement(elementYY).perform();
 
-        // دالة لتوليد كلمة مرور عشوائية
-        public static String getRandomPassword(int length) {
-            String charsAndNums = CHARACTERS + NUMBERS;
-            Random random = new Random();
-            StringBuilder builder = new StringBuilder();
-
-            for (int i = 0; i < length; i++) {
-                builder.append(charsAndNums.charAt(random.nextInt(charsAndNums.length())));
-            }
-            return builder.toString();
-        }
-
-        // دالة لإدخال بيانات عشوائية في الـ WebElements
-        public static void fillInFields(WebElement firstNameField, WebElement lastNameField, WebElement emailField, WebElement passwordField) {
-            firstNameField.sendKeys(getRandomString(6));
-            lastNameField.sendKeys(getRandomString(6));
-            emailField.sendKeys(getRandomEmail());
-            passwordField.sendKeys(getRandomPassword(10));
-        }
+        // Click on element XX
+        WebElement elementXX = wait.until(ExpectedConditions.elementToBeClickable(elementXXLocator));
+        elementXX.click();
     }
 
 

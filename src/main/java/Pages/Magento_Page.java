@@ -1,9 +1,12 @@
 package Pages;
 
 import Utilities.Utility;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
+import static org.testng.Assert.assertTrue;
 
 
 public class Magento_Page
@@ -26,7 +29,7 @@ public class Magento_Page
     private static final By FirstItemAddComp = By.xpath("(//a[@title='Add to Compare'])[1]");
     private static final By SecItemHov = By.xpath("(//div[@aria-label='Color'])[2]");
     private static final By SecItemAddComp = By.xpath("(//a[@title='Add to Compare'])[2]");
-
+    private static final By ComparisonListBtn = By.xpath("//a[normalize-space()='comparison list']");
 
 
 
@@ -52,39 +55,61 @@ public class Magento_Page
         return new Magento_Page(driver);
     }
 
-
-
-
-
-
-    public Magento_Page EnterFirstName(String firstN)
+    public Magento_Page AddingItem1()
     {
-        Utility.sendData(driver, FirstName, firstN);
-        return this;
+        Utility.scrollAndHoverAndClick(driver,FirstItemHov, FirstItemAddComp);
+        assertTrue(driver.findElement(ComparisonListBtn).isDisplayed(), "Comparison List Button is not displayed on the page.");
+        return new Magento_Page(driver);
+
+    }
+    public Magento_Page AddingItem2()
+    {
+        Utility.scrollAndHoverAndClick(driver,SecItemHov, SecItemAddComp);
+        assertTrue(driver.findElement(ComparisonListBtn).isDisplayed(), "Comparison List Button is not displayed on the page.");
+        return new Magento_Page(driver);
+
     }
 
-    public Magento_Page EnterLastName(String lastN)
-    {
-        Utility.sendData(driver, LastName, lastN);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public Magento_Page filling() {
+        Faker faker = new Faker();
+        // Generate random data
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String email = faker.internet().emailAddress();
+        String password = generateStrongPassword();
+
+        Utility.sendData(driver, FirstName, firstName);
+        Utility.sendData(driver, LastName, lastName);
+        Utility.sendData(driver, Email, email);
+        Utility.sendData(driver, Password, password);
+        Utility.sendData(driver, ConfPassword, password);
         return this;
     }
-
-    public Magento_Page EnterEmail(String PCode)
-    {
-        Utility.sendData(driver, Email, PCode);
-        return this;
-    }
-
-    public Magento_Page EnterPassword(String PCode)
-    {
-        Utility.sendData(driver, Password, PCode);
-        return this;
-    }
-
-    public Magento_Page EnterConfPassword(String PCode)
-    {
-        Utility.sendData(driver, ConfPassword, PCode);
-        return this;
+    // Inner method to generate a strong password
+    private String generateStrongPassword() {
+        Faker faker = new Faker();
+        String upperCase = faker.regexify("[A-Z]{2}");
+        String lowerCase = faker.regexify("[a-z]{2}");
+        String digits = faker.regexify("[0-9]{2}");
+        String symbols = faker.regexify("[!@#$%^&*]{2}");
+        return upperCase + lowerCase + digits + symbols;
     }
 
 
